@@ -1,90 +1,77 @@
 Traceback (most recent call last):
-  File "/usr/local/lib/python3.8/dist-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+  File "/usr/local/lib/python3.9/dist-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
     executenb(
-  File "/usr/local/lib/python3.8/dist-packages/nbclient/client.py", line 1204, in execute
+  File "/usr/local/lib/python3.9/dist-packages/nbclient/client.py", line 1204, in execute
     return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
-  File "/usr/local/lib/python3.8/dist-packages/nbclient/util.py", line 84, in wrapped
+  File "/usr/local/lib/python3.9/dist-packages/nbclient/util.py", line 84, in wrapped
     return just_run(coro(*args, **kwargs))
-  File "/usr/local/lib/python3.8/dist-packages/nbclient/util.py", line 62, in just_run
+  File "/usr/local/lib/python3.9/dist-packages/nbclient/util.py", line 62, in just_run
     return loop.run_until_complete(coro)
-  File "/usr/lib/python3.8/asyncio/base_events.py", line 616, in run_until_complete
+  File "/usr/lib/python3.9/asyncio/base_events.py", line 647, in run_until_complete
     return future.result()
-  File "/usr/local/lib/python3.8/dist-packages/nbclient/client.py", line 663, in async_execute
+  File "/usr/local/lib/python3.9/dist-packages/nbclient/client.py", line 663, in async_execute
     await self.async_execute_cell(
-  File "/usr/local/lib/python3.8/dist-packages/nbclient/client.py", line 965, in async_execute_cell
+  File "/usr/local/lib/python3.9/dist-packages/nbclient/client.py", line 965, in async_execute_cell
     await self._check_raise_for_error(cell, cell_index, exec_reply)
-  File "/usr/local/lib/python3.8/dist-packages/nbclient/client.py", line 862, in _check_raise_for_error
+  File "/usr/local/lib/python3.9/dist-packages/nbclient/client.py", line 862, in _check_raise_for_error
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-import mysql.connector
+import pymysql
 import pandas as pd
-
-mydb = mysql.connector.connect(
-  host="localhost",
-  user="root",
-  password="",
-  database="petal_length"
-)
-
-mycursor = mydb.cursor()
-
-mycursor.execute("SELECT * FROM iris")
-
-myresult = mycursor.fetchall()
-mycursor.close()
-df_mysql = pd.DataFrame(myresult, columns=['id','petallength'])
-# df_mysql.drop(df_mysql.columns[[0]],axis=1,inplace=True)
-df_mysql
+mydb = pymysql.connect(
+  db="petal_length", user="admin",passwd="ZDFHM60q",host="mysql-114539-0.cloudclusters.net", port=10002,autocommit=True)
+cur = mydb.cursor()
+cur.execute("SELECT * FROM iris")
+data = cur.fetchall()
+column_names = ["id","petal_l"]
+df_mysql = pd.DataFrame(data, columns=column_names)
+print(df_mysql)
 ------------------
 
 [0;31m[0m
-[0;31mMySQLInterfaceError[0mTraceback (most recent call last)
-[0;32m/usr/local/lib/python3.8/dist-packages/mysql/connector/connection_cext.py[0m in [0;36m_open_connection[0;34m(self)[0m
-[1;32m    287[0m         [0;32mtry[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
-[0;32m--> 288[0;31m             [0mself[0m[0;34m.[0m[0m_cmysql[0m[0;34m.[0m[0mconnect[0m[0;34m([0m[0;34m**[0m[0mcnx_kwargs[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[0m[1;32m    289[0m             [0mself[0m[0;34m.[0m[0m_cmysql[0m[0;34m.[0m[0mconverter_str_fallback[0m [0;34m=[0m [0mself[0m[0;34m.[0m[0m_converter_str_fallback[0m[0;34m[0m[0;34m[0m[0m
+[0;31mgaierror[0mTraceback (most recent call last)
+[0;32m/usr/local/lib/python3.9/dist-packages/pymysql/connections.py[0m in [0;36mconnect[0;34m(self, sock)[0m
+[1;32m    615[0m                         [0;32mtry[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 616[0;31m                             sock = socket.create_connection(
+[0m[1;32m    617[0m                                 [0;34m([0m[0mself[0m[0;34m.[0m[0mhost[0m[0;34m,[0m [0mself[0m[0;34m.[0m[0mport[0m[0;34m)[0m[0;34m,[0m [0mself[0m[0;34m.[0m[0mconnect_timeout[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m[0m[0;34m[0m[0m
 
-[0;31mMySQLInterfaceError[0m: Can't connect to MySQL server on 'localhost:3306' (99)
+[0;32m/usr/lib/python3.9/socket.py[0m in [0;36mcreate_connection[0;34m(address, timeout, source_address)[0m
+[1;32m    822[0m     [0merr[0m [0;34m=[0m [0;32mNone[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 823[0;31m     [0;32mfor[0m [0mres[0m [0;32min[0m [0mgetaddrinfo[0m[0;34m([0m[0mhost[0m[0;34m,[0m [0mport[0m[0;34m,[0m [0;36m0[0m[0;34m,[0m [0mSOCK_STREAM[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    824[0m         [0maf[0m[0;34m,[0m [0msocktype[0m[0;34m,[0m [0mproto[0m[0;34m,[0m [0mcanonname[0m[0;34m,[0m [0msa[0m [0;34m=[0m [0mres[0m[0;34m[0m[0;34m[0m[0m
 
-The above exception was the direct cause of the following exception:
+[0;32m/usr/lib/python3.9/socket.py[0m in [0;36mgetaddrinfo[0;34m(host, port, family, type, proto, flags)[0m
+[1;32m    953[0m     [0maddrlist[0m [0;34m=[0m [0;34m[[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 954[0;31m     [0;32mfor[0m [0mres[0m [0;32min[0m [0m_socket[0m[0;34m.[0m[0mgetaddrinfo[0m[0;34m([0m[0mhost[0m[0;34m,[0m [0mport[0m[0;34m,[0m [0mfamily[0m[0;34m,[0m [0mtype[0m[0;34m,[0m [0mproto[0m[0;34m,[0m [0mflags[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    955[0m         [0maf[0m[0;34m,[0m [0msocktype[0m[0;34m,[0m [0mproto[0m[0;34m,[0m [0mcanonname[0m[0;34m,[0m [0msa[0m [0;34m=[0m [0mres[0m[0;34m[0m[0;34m[0m[0m
 
-[0;31mDatabaseError[0mTraceback (most recent call last)
-[0;32m<ipython-input-4-7c709bfa2130>[0m in [0;36m<module>[0;34m[0m
+[0;31mgaierror[0m: [Errno -2] Name or service not known
+
+During handling of the above exception, another exception occurred:
+
+[0;31mOperationalError[0mTraceback (most recent call last)
+[0;32m<ipython-input-4-629b02358c17>[0m in [0;36m<cell line: 3>[0;34m()[0m
+[1;32m      1[0m [0;32mimport[0m [0mpymysql[0m[0;34m[0m[0;34m[0m[0m
 [1;32m      2[0m [0;32mimport[0m [0mpandas[0m [0;32mas[0m [0mpd[0m[0;34m[0m[0;34m[0m[0m
-[1;32m      3[0m [0;34m[0m[0m
-[0;32m----> 4[0;31m mydb = mysql.connector.connect(
-[0m[1;32m      5[0m   [0mhost[0m[0;34m=[0m[0;34m"localhost"[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
-[1;32m      6[0m   [0muser[0m[0;34m=[0m[0;34m"root"[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 3[0;31m mydb = pymysql.connect(
+[0m[1;32m      4[0m   db="petal_length", user="admin",passwd="ZDFHM60q",host="mysql-114539-0.cloudclusters.net", port=10002,autocommit=True)
+[1;32m      5[0m [0mcur[0m [0;34m=[0m [0mmydb[0m[0;34m.[0m[0mcursor[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
 
-[0;32m/usr/local/lib/python3.8/dist-packages/mysql/connector/pooling.py[0m in [0;36mconnect[0;34m(*args, **kwargs)[0m
-[1;32m    291[0m [0;34m[0m[0m
-[1;32m    292[0m     [0;32mif[0m [0mCMySQLConnection[0m [0;32mand[0m [0;32mnot[0m [0muse_pure[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
-[0;32m--> 293[0;31m         [0;32mreturn[0m [0mCMySQLConnection[0m[0;34m([0m[0;34m*[0m[0margs[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[0m[1;32m    294[0m     [0;32mreturn[0m [0mMySQLConnection[0m[0;34m([0m[0;34m*[0m[0margs[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[1;32m    295[0m [0;34m[0m[0m
+[0;32m/usr/local/lib/python3.9/dist-packages/pymysql/connections.py[0m in [0;36m__init__[0;34m(self, user, password, host, database, unix_socket, port, charset, sql_mode, read_default_file, conv, use_unicode, client_flag, cursorclass, init_command, connect_timeout, read_default_group, autocommit, local_infile, max_allowed_packet, defer_connect, auth_plugin_map, read_timeout, write_timeout, bind_address, binary_prefix, program_name, server_public_key, ssl, ssl_ca, ssl_cert, ssl_disabled, ssl_key, ssl_verify_cert, ssl_verify_identity, compress, named_pipe, passwd, db)[0m
+[1;32m    350[0m             [0mself[0m[0;34m.[0m[0m_sock[0m [0;34m=[0m [0;32mNone[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    351[0m         [0;32melse[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 352[0;31m             [0mself[0m[0;34m.[0m[0mconnect[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    353[0m [0;34m[0m[0m
+[1;32m    354[0m     [0;32mdef[0m [0m__enter__[0m[0;34m([0m[0mself[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
 
-[0;32m/usr/local/lib/python3.8/dist-packages/mysql/connector/connection_cext.py[0m in [0;36m__init__[0;34m(self, **kwargs)[0m
-[1;32m    116[0m [0;34m[0m[0m
-[1;32m    117[0m         [0;32mif[0m [0mkwargs[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
-[0;32m--> 118[0;31m             [0mself[0m[0;34m.[0m[0mconnect[0m[0;34m([0m[0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[0m[1;32m    119[0m [0;34m[0m[0m
-[1;32m    120[0m     [0;32mdef[0m [0m_add_default_conn_attrs[0m[0;34m([0m[0mself[0m[0;34m)[0m [0;34m->[0m [0;32mNone[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m/usr/local/lib/python3.9/dist-packages/pymysql/connections.py[0m in [0;36mconnect[0;34m(self, sock)[0m
+[1;32m    666[0m                 [0;32mif[0m [0mDEBUG[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    667[0m                     [0mprint[0m[0;34m([0m[0mexc[0m[0;34m.[0m[0mtraceback[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 668[0;31m                 [0;32mraise[0m [0mexc[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    669[0m [0;34m[0m[0m
+[1;32m    670[0m             [0;31m# If e is neither DatabaseError or IOError, It's a bug.[0m[0;34m[0m[0;34m[0m[0m
 
-[0;32m/usr/local/lib/python3.8/dist-packages/mysql/connector/abstracts.py[0m in [0;36mconnect[0;34m(self, **kwargs)[0m
-[1;32m   1176[0m [0;34m[0m[0m
-[1;32m   1177[0m         [0mself[0m[0;34m.[0m[0mdisconnect[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[0;32m-> 1178[0;31m         [0mself[0m[0;34m.[0m[0m_open_connection[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[0m[1;32m   1179[0m         [0;31m# Server does not allow to run any other statement different from ALTER[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
-[1;32m   1180[0m         [0;31m# when user's password has been expired.[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
-
-[0;32m/usr/local/lib/python3.8/dist-packages/mysql/connector/connection_cext.py[0m in [0;36m_open_connection[0;34m(self)[0m
-[1;32m    291[0m                 [0mself[0m[0;34m.[0m[0mconverter[0m[0;34m.[0m[0mstr_fallback[0m [0;34m=[0m [0mself[0m[0;34m.[0m[0m_converter_str_fallback[0m[0;34m[0m[0;34m[0m[0m
-[1;32m    292[0m         [0;32mexcept[0m [0mMySQLInterfaceError[0m [0;32mas[0m [0merr[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
-[0;32m--> 293[0;31m             raise get_mysql_exception(
-[0m[1;32m    294[0m                 [0mmsg[0m[0;34m=[0m[0merr[0m[0;34m.[0m[0mmsg[0m[0;34m,[0m [0merrno[0m[0;34m=[0m[0merr[0m[0;34m.[0m[0merrno[0m[0;34m,[0m [0msqlstate[0m[0;34m=[0m[0merr[0m[0;34m.[0m[0msqlstate[0m[0;34m[0m[0;34m[0m[0m
-[1;32m    295[0m             ) from err
-
-[0;31mDatabaseError[0m: 2003 (HY000): Can't connect to MySQL server on 'localhost:3306' (99)
-DatabaseError: 2003 (HY000): Can't connect to MySQL server on 'localhost:3306' (99)
+[0;31mOperationalError[0m: (2003, "Can't connect to MySQL server on 'mysql-114539-0.cloudclusters.net' ([Errno -2] Name or service not known)")
+OperationalError: (2003, "Can't connect to MySQL server on 'mysql-114539-0.cloudclusters.net' ([Errno -2] Name or service not known)")
 
