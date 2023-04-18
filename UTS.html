@@ -63,6 +63,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'UTS';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Tugas Pagerank" href="TugasPagerank.html" />
     <link rel="prev" title="Tugas Pipelines" href="tugas4.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -160,6 +161,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="tugas3.html"><strong>Tugas 3</strong></a></li>
 <li class="toctree-l1"><a class="reference internal" href="tugas4.html"><strong>Tugas Pipelines</strong></a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#"><strong>UTS PROSAINDATA</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="TugasPagerank.html"><strong>Tugas Pagerank</strong></a></li>
 </ul>
 
     </div>
@@ -403,7 +405,7 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-8a919d14-312a-479e-814f-acef3ff1bf01">
+  <div id="df-d09dc002-b7aa-44a9-807e-b7f9c1981af1">
     <div class="colab-df-container">
       <div>
 <style scoped>
@@ -475,7 +477,7 @@ document.write(`
 </table>
 <p>805 rows × 1 columns</p>
 </div>
-      <button class="colab-df-convert" onclick="convertToInteractive('df-8a919d14-312a-479e-814f-acef3ff1bf01')"
+      <button class="colab-df-convert" onclick="convertToInteractive('df-d09dc002-b7aa-44a9-807e-b7f9c1981af1')"
               title="Convert this dataframe to an interactive table."
               style="display:none;">
         
@@ -526,12 +528,12 @@ document.write(`
 
       <script>
         const buttonEl =
-          document.querySelector('#df-8a919d14-312a-479e-814f-acef3ff1bf01 button.colab-df-convert');
+          document.querySelector('#df-d09dc002-b7aa-44a9-807e-b7f9c1981af1 button.colab-df-convert');
         buttonEl.style.display =
           google.colab.kernel.accessAllowed ? 'block' : 'none';
 
         async function convertToInteractive(key) {
-          const element = document.querySelector('#df-8a919d14-312a-479e-814f-acef3ff1bf01');
+          const element = document.querySelector('#df-d09dc002-b7aa-44a9-807e-b7f9c1981af1');
           const dataTable =
             await google.colab.kernel.invokeFunction('convertToInteractive',
                                                      [key], {});
@@ -569,18 +571,17 @@ document.write(`
 Requirement already satisfied: nltk in /usr/local/lib/python3.9/dist-packages (3.8.1)
 Requirement already satisfied: tqdm in /usr/local/lib/python3.9/dist-packages (from nltk) (4.65.0)
 Requirement already satisfied: regex&gt;=2021.8.3 in /usr/local/lib/python3.9/dist-packages (from nltk) (2022.10.31)
+Requirement already satisfied: joblib in /usr/local/lib/python3.9/dist-packages (from nltk) (1.2.0)
 Requirement already satisfied: click in /usr/local/lib/python3.9/dist-packages (from nltk) (8.1.3)
-Requirement already satisfied: joblib in /usr/local/lib/python3.9/dist-packages (from nltk) (1.1.1)
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Looking in indexes: https://pypi.org/simple, https://us-python.pkg.dev/colab-wheels/public/simple/
-Collecting sastrawi
-  Downloading Sastrawi-1.0.1-py2.py3-none-any.whl (209 kB)
-?25l     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/209.7 KB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺ <span class=" -Color -Color-Green">204.8/209.7 KB</span> <span class=" -Color -Color-Red">6.8 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">209.7/209.7 KB</span> <span class=" -Color -Color-Red">5.2 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting sastrawi
+  Downloading Sastrawi-1.0.1-py2.py3-none-any.whl (209 kB)
+?25l     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/209.7 kB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">209.7/209.7 kB</span> <span class=" -Color -Color-Red">8.9 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
 ?25h
 </pre></div>
 </div>
@@ -589,18 +590,18 @@ Successfully installed sastrawi-1.0.1
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Looking in indexes: https://pypi.org/simple, https://us-python.pkg.dev/colab-wheels/public/simple/
+Collecting swifter
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting swifter
-  Downloading swifter-1.3.4.tar.gz (830 kB)
-?25l     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/830.9 KB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
-     ━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">194.6/830.9 KB</span> <span class=" -Color -Color-Red">5.9 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">830.9/830.9 KB</span> <span class=" -Color -Color-Red">12.4 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading swifter-1.3.4.tar.gz (830 kB)
+?25l     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/830.9 kB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">829.4/830.9 kB</span> <span class=" -Color -Color-Red">26.9 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">830.9/830.9 kB</span> <span class=" -Color -Color-Red">18.9 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
 ?25h
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Preparing metadata (setup.py) ... ?25l?25hdone
-Requirement already satisfied: pandas&gt;=1.0.0 in /usr/local/lib/python3.9/dist-packages (from swifter) (1.4.4)
+Requirement already satisfied: pandas&gt;=1.0.0 in /usr/local/lib/python3.9/dist-packages (from swifter) (1.5.3)
 Requirement already satisfied: psutil&gt;=5.6.6 in /usr/local/lib/python3.9/dist-packages (from swifter) (5.9.4)
 Requirement already satisfied: dask[dataframe]&gt;=2.10.0 in /usr/local/lib/python3.9/dist-packages (from swifter) (2022.12.1)
 Requirement already satisfied: tqdm&gt;=4.33.0 in /usr/local/lib/python3.9/dist-packages (from swifter) (4.65.0)
@@ -608,64 +609,64 @@ Requirement already satisfied: ipywidgets&gt;=7.0.0 in /usr/local/lib/python3.9/
 Requirement already satisfied: cloudpickle&gt;=0.2.2 in /usr/local/lib/python3.9/dist-packages (from swifter) (2.2.1)
 Requirement already satisfied: parso&gt;0.4.0 in /usr/local/lib/python3.9/dist-packages (from swifter) (0.8.3)
 Requirement already satisfied: bleach&gt;=3.1.1 in /usr/local/lib/python3.9/dist-packages (from swifter) (6.0.0)
-Requirement already satisfied: webencodings in /usr/local/lib/python3.9/dist-packages (from bleach&gt;=3.1.1-&gt;swifter) (0.5.1)
 Requirement already satisfied: six&gt;=1.9.0 in /usr/local/lib/python3.9/dist-packages (from bleach&gt;=3.1.1-&gt;swifter) (1.16.0)
-Requirement already satisfied: pyyaml&gt;=5.3.1 in /usr/local/lib/python3.9/dist-packages (from dask[dataframe]&gt;=2.10.0-&gt;swifter) (6.0)
-Requirement already satisfied: fsspec&gt;=0.6.0 in /usr/local/lib/python3.9/dist-packages (from dask[dataframe]&gt;=2.10.0-&gt;swifter) (2023.3.0)
-Requirement already satisfied: partd&gt;=0.3.10 in /usr/local/lib/python3.9/dist-packages (from dask[dataframe]&gt;=2.10.0-&gt;swifter) (1.3.0)
+Requirement already satisfied: webencodings in /usr/local/lib/python3.9/dist-packages (from bleach&gt;=3.1.1-&gt;swifter) (0.5.1)
 Requirement already satisfied: packaging&gt;=20.0 in /usr/local/lib/python3.9/dist-packages (from dask[dataframe]&gt;=2.10.0-&gt;swifter) (23.0)
+Requirement already satisfied: fsspec&gt;=0.6.0 in /usr/local/lib/python3.9/dist-packages (from dask[dataframe]&gt;=2.10.0-&gt;swifter) (2023.4.0)
 Requirement already satisfied: toolz&gt;=0.8.2 in /usr/local/lib/python3.9/dist-packages (from dask[dataframe]&gt;=2.10.0-&gt;swifter) (0.12.0)
+Requirement already satisfied: partd&gt;=0.3.10 in /usr/local/lib/python3.9/dist-packages (from dask[dataframe]&gt;=2.10.0-&gt;swifter) (1.3.0)
 Requirement already satisfied: click&gt;=7.0 in /usr/local/lib/python3.9/dist-packages (from dask[dataframe]&gt;=2.10.0-&gt;swifter) (8.1.3)
+Requirement already satisfied: pyyaml&gt;=5.3.1 in /usr/local/lib/python3.9/dist-packages (from dask[dataframe]&gt;=2.10.0-&gt;swifter) (6.0)
 Requirement already satisfied: numpy&gt;=1.18 in /usr/local/lib/python3.9/dist-packages (from dask[dataframe]&gt;=2.10.0-&gt;swifter) (1.22.4)
+Requirement already satisfied: widgetsnbextension~=3.6.0 in /usr/local/lib/python3.9/dist-packages (from ipywidgets&gt;=7.0.0-&gt;swifter) (3.6.4)
+Requirement already satisfied: jupyterlab-widgets&gt;=1.0.0 in /usr/local/lib/python3.9/dist-packages (from ipywidgets&gt;=7.0.0-&gt;swifter) (3.0.7)
 Requirement already satisfied: ipykernel&gt;=4.5.1 in /usr/local/lib/python3.9/dist-packages (from ipywidgets&gt;=7.0.0-&gt;swifter) (5.5.6)
 Requirement already satisfied: ipython&gt;=4.0.0 in /usr/local/lib/python3.9/dist-packages (from ipywidgets&gt;=7.0.0-&gt;swifter) (7.34.0)
-Requirement already satisfied: jupyterlab-widgets&gt;=1.0.0 in /usr/local/lib/python3.9/dist-packages (from ipywidgets&gt;=7.0.0-&gt;swifter) (3.0.7)
 Requirement already satisfied: traitlets&gt;=4.3.1 in /usr/local/lib/python3.9/dist-packages (from ipywidgets&gt;=7.0.0-&gt;swifter) (5.7.1)
-Requirement already satisfied: widgetsnbextension~=3.6.0 in /usr/local/lib/python3.9/dist-packages (from ipywidgets&gt;=7.0.0-&gt;swifter) (3.6.4)
 Requirement already satisfied: ipython-genutils~=0.2.0 in /usr/local/lib/python3.9/dist-packages (from ipywidgets&gt;=7.0.0-&gt;swifter) (0.2.0)
-Requirement already satisfied: python-dateutil&gt;=2.8.1 in /usr/local/lib/python3.9/dist-packages (from pandas&gt;=1.0.0-&gt;swifter) (2.8.2)
 Requirement already satisfied: pytz&gt;=2020.1 in /usr/local/lib/python3.9/dist-packages (from pandas&gt;=1.0.0-&gt;swifter) (2022.7.1)
-Requirement already satisfied: jupyter-client in /usr/local/lib/python3.9/dist-packages (from ipykernel&gt;=4.5.1-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (6.1.12)
+Requirement already satisfied: python-dateutil&gt;=2.8.1 in /usr/local/lib/python3.9/dist-packages (from pandas&gt;=1.0.0-&gt;swifter) (2.8.2)
 Requirement already satisfied: tornado&gt;=4.2 in /usr/local/lib/python3.9/dist-packages (from ipykernel&gt;=4.5.1-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (6.2)
-Requirement already satisfied: decorator in /usr/local/lib/python3.9/dist-packages (from ipython&gt;=4.0.0-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (4.4.2)
-Requirement already satisfied: backcall in /usr/local/lib/python3.9/dist-packages (from ipython&gt;=4.0.0-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (0.2.0)
-Requirement already satisfied: pygments in /usr/local/lib/python3.9/dist-packages (from ipython&gt;=4.0.0-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (2.14.0)
-Requirement already satisfied: pexpect&gt;4.3 in /usr/local/lib/python3.9/dist-packages (from ipython&gt;=4.0.0-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (4.8.0)
-Requirement already satisfied: prompt-toolkit!=3.0.0,!=3.0.1,&lt;3.1.0,&gt;=2.0.0 in /usr/local/lib/python3.9/dist-packages (from ipython&gt;=4.0.0-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (3.0.38)
-Requirement already satisfied: setuptools&gt;=18.5 in /usr/local/lib/python3.9/dist-packages (from ipython&gt;=4.0.0-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (67.6.1)
-Requirement already satisfied: jedi&gt;=0.16 in /usr/local/lib/python3.9/dist-packages (from ipython&gt;=4.0.0-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (0.18.2)
+Requirement already satisfied: jupyter-client in /usr/local/lib/python3.9/dist-packages (from ipykernel&gt;=4.5.1-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (6.1.12)
 Requirement already satisfied: pickleshare in /usr/local/lib/python3.9/dist-packages (from ipython&gt;=4.0.0-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (0.7.5)
 Requirement already satisfied: matplotlib-inline in /usr/local/lib/python3.9/dist-packages (from ipython&gt;=4.0.0-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (0.1.6)
+Requirement already satisfied: pexpect&gt;4.3 in /usr/local/lib/python3.9/dist-packages (from ipython&gt;=4.0.0-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (4.8.0)
+Requirement already satisfied: setuptools&gt;=18.5 in /usr/local/lib/python3.9/dist-packages (from ipython&gt;=4.0.0-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (67.6.1)
+Requirement already satisfied: backcall in /usr/local/lib/python3.9/dist-packages (from ipython&gt;=4.0.0-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (0.2.0)
+Requirement already satisfied: jedi&gt;=0.16 in /usr/local/lib/python3.9/dist-packages (from ipython&gt;=4.0.0-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (0.18.2)
+Requirement already satisfied: pygments in /usr/local/lib/python3.9/dist-packages (from ipython&gt;=4.0.0-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (2.14.0)
+Requirement already satisfied: decorator in /usr/local/lib/python3.9/dist-packages (from ipython&gt;=4.0.0-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (4.4.2)
+Requirement already satisfied: prompt-toolkit!=3.0.0,!=3.0.1,&lt;3.1.0,&gt;=2.0.0 in /usr/local/lib/python3.9/dist-packages (from ipython&gt;=4.0.0-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (3.0.38)
 Requirement already satisfied: locket in /usr/local/lib/python3.9/dist-packages (from partd&gt;=0.3.10-&gt;dask[dataframe]&gt;=2.10.0-&gt;swifter) (1.0.0)
 Requirement already satisfied: notebook&gt;=4.4.1 in /usr/local/lib/python3.9/dist-packages (from widgetsnbextension~=3.6.0-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (6.4.8)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: argon2-cffi in /usr/local/lib/python3.9/dist-packages (from notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.6.0-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (21.3.0)
-Requirement already satisfied: Send2Trash&gt;=1.8.0 in /usr/local/lib/python3.9/dist-packages (from notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.6.0-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (1.8.0)
-Requirement already satisfied: prometheus-client in /usr/local/lib/python3.9/dist-packages (from notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.6.0-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (0.16.0)
-Requirement already satisfied: nest-asyncio&gt;=1.5 in /usr/local/lib/python3.9/dist-packages (from notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.6.0-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (1.5.6)
-Requirement already satisfied: jinja2 in /usr/local/lib/python3.9/dist-packages (from notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.6.0-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (3.1.2)
-Requirement already satisfied: nbconvert in /usr/local/lib/python3.9/dist-packages (from notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.6.0-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (6.5.4)
-Requirement already satisfied: nbformat in /usr/local/lib/python3.9/dist-packages (from notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.6.0-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (5.8.0)
-Requirement already satisfied: pyzmq&gt;=17 in /usr/local/lib/python3.9/dist-packages (from notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.6.0-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (23.2.1)
-Requirement already satisfied: jupyter-core&gt;=4.6.1 in /usr/local/lib/python3.9/dist-packages (from notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.6.0-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (5.3.0)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: jinja2 in /usr/local/lib/python3.9/dist-packages (from notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.6.0-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (3.1.2)
 Requirement already satisfied: terminado&gt;=0.8.3 in /usr/local/lib/python3.9/dist-packages (from notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.6.0-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (0.17.1)
+Requirement already satisfied: nbconvert in /usr/local/lib/python3.9/dist-packages (from notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.6.0-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (6.5.4)
+Requirement already satisfied: prometheus-client in /usr/local/lib/python3.9/dist-packages (from notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.6.0-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (0.16.0)
+Requirement already satisfied: nbformat in /usr/local/lib/python3.9/dist-packages (from notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.6.0-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (5.8.0)
+Requirement already satisfied: nest-asyncio&gt;=1.5 in /usr/local/lib/python3.9/dist-packages (from notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.6.0-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (1.5.6)
+Requirement already satisfied: pyzmq&gt;=17 in /usr/local/lib/python3.9/dist-packages (from notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.6.0-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (23.2.1)
+Requirement already satisfied: argon2-cffi in /usr/local/lib/python3.9/dist-packages (from notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.6.0-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (21.3.0)
+Requirement already satisfied: jupyter-core&gt;=4.6.1 in /usr/local/lib/python3.9/dist-packages (from notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.6.0-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (5.3.0)
+Requirement already satisfied: Send2Trash&gt;=1.8.0 in /usr/local/lib/python3.9/dist-packages (from notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.6.0-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (1.8.0)
 Requirement already satisfied: ptyprocess&gt;=0.5 in /usr/local/lib/python3.9/dist-packages (from pexpect&gt;4.3-&gt;ipython&gt;=4.0.0-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (0.7.0)
 Requirement already satisfied: wcwidth in /usr/local/lib/python3.9/dist-packages (from prompt-toolkit!=3.0.0,!=3.0.1,&lt;3.1.0,&gt;=2.0.0-&gt;ipython&gt;=4.0.0-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (0.2.6)
 Requirement already satisfied: platformdirs&gt;=2.5 in /usr/local/lib/python3.9/dist-packages (from jupyter-core&gt;=4.6.1-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.6.0-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (3.2.0)
 Requirement already satisfied: argon2-cffi-bindings in /usr/local/lib/python3.9/dist-packages (from argon2-cffi-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.6.0-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (21.2.0)
 Requirement already satisfied: MarkupSafe&gt;=2.0 in /usr/local/lib/python3.9/dist-packages (from jinja2-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.6.0-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (2.1.2)
 Requirement already satisfied: mistune&lt;2,&gt;=0.8.1 in /usr/local/lib/python3.9/dist-packages (from nbconvert-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.6.0-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (0.8.4)
-Requirement already satisfied: lxml in /usr/local/lib/python3.9/dist-packages (from nbconvert-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.6.0-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (4.9.2)
-Requirement already satisfied: pandocfilters&gt;=1.4.1 in /usr/local/lib/python3.9/dist-packages (from nbconvert-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.6.0-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (1.5.0)
-Requirement already satisfied: nbclient&gt;=0.5.0 in /usr/local/lib/python3.9/dist-packages (from nbconvert-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.6.0-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (0.5.13)
-Requirement already satisfied: beautifulsoup4 in /usr/local/lib/python3.9/dist-packages (from nbconvert-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.6.0-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (4.11.2)
-Requirement already satisfied: entrypoints&gt;=0.2.2 in /usr/local/lib/python3.9/dist-packages (from nbconvert-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.6.0-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (0.4)
-Requirement already satisfied: tinycss2 in /usr/local/lib/python3.9/dist-packages (from nbconvert-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.6.0-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (1.2.1)
-Requirement already satisfied: jupyterlab-pygments in /usr/local/lib/python3.9/dist-packages (from nbconvert-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.6.0-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (0.2.2)
 Requirement already satisfied: defusedxml in /usr/local/lib/python3.9/dist-packages (from nbconvert-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.6.0-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (0.7.1)
-Requirement already satisfied: jsonschema&gt;=2.6 in /usr/local/lib/python3.9/dist-packages (from nbformat-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.6.0-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (4.3.3)
+Requirement already satisfied: pandocfilters&gt;=1.4.1 in /usr/local/lib/python3.9/dist-packages (from nbconvert-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.6.0-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (1.5.0)
+Requirement already satisfied: beautifulsoup4 in /usr/local/lib/python3.9/dist-packages (from nbconvert-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.6.0-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (4.11.2)
+Requirement already satisfied: tinycss2 in /usr/local/lib/python3.9/dist-packages (from nbconvert-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.6.0-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (1.2.1)
+Requirement already satisfied: lxml in /usr/local/lib/python3.9/dist-packages (from nbconvert-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.6.0-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (4.9.2)
+Requirement already satisfied: entrypoints&gt;=0.2.2 in /usr/local/lib/python3.9/dist-packages (from nbconvert-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.6.0-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (0.4)
+Requirement already satisfied: jupyterlab-pygments in /usr/local/lib/python3.9/dist-packages (from nbconvert-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.6.0-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (0.2.2)
+Requirement already satisfied: nbclient&gt;=0.5.0 in /usr/local/lib/python3.9/dist-packages (from nbconvert-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.6.0-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (0.5.13)
 Requirement already satisfied: fastjsonschema in /usr/local/lib/python3.9/dist-packages (from nbformat-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.6.0-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (2.16.3)
+Requirement already satisfied: jsonschema&gt;=2.6 in /usr/local/lib/python3.9/dist-packages (from nbformat-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.6.0-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (4.3.3)
 Requirement already satisfied: attrs&gt;=17.4.0 in /usr/local/lib/python3.9/dist-packages (from jsonschema&gt;=2.6-&gt;nbformat-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.6.0-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (22.2.0)
 Requirement already satisfied: pyrsistent!=0.17.0,!=0.17.1,!=0.17.2,&gt;=0.14.0 in /usr/local/lib/python3.9/dist-packages (from jsonschema&gt;=2.6-&gt;nbformat-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.6.0-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (0.19.3)
 </pre></div>
@@ -677,15 +678,13 @@ Building wheels for collected packages: swifter
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Building wheel for swifter (setup.py) ... ?25l?25hdone
-  Created wheel for swifter: filename=swifter-1.3.4-py3-none-any.whl size=16321 sha256=52fe7c19e560a26a103ee2015bf5caad00aeea8dcfa3f791637a54260a7e7a34
+  Created wheel for swifter: filename=swifter-1.3.4-py3-none-any.whl size=16321 sha256=a43870db44a7624e385258adc63dc286ede14b034e1d64a8421da587e235b86a
   Stored in directory: /root/.cache/pip/wheels/2b/5e/f2/3931524f702ffd03309e96d35ee2fbf9c61c27377511ee8d4c
 Successfully built swifter
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Installing collected packages: swifter
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Successfully installed swifter-1.3.4
+Successfully installed swifter-1.3.4
 </pre></div>
 </div>
 </div>
@@ -871,9 +870,9 @@ Name: Abstrak, Length: 805, dtype: object
 <span class="g g-Whitespace">      </span><span class="mi">7</span>     <span class="n">data</span> <span class="o">=</span> <span class="p">[]</span>
 
 <span class="nn">/usr/local/lib/python3.9/dist-packages/pandas/core/generic.py</span> in <span class="ni">__getattr__</span><span class="nt">(self, name)</span>
-<span class="g g-Whitespace">   </span><span class="mi">5574</span>             <span class="k">return</span> <span class="bp">self</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
-<span class="ne">-&gt; </span><span class="mi">5575</span>         <span class="k">return</span> <span class="nb">object</span><span class="o">.</span><span class="fm">__getattribute__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">5576</span> 
+<span class="g g-Whitespace">   </span><span class="mi">5901</span>             <span class="k">return</span> <span class="bp">self</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
+<span class="ne">-&gt; </span><span class="mi">5902</span>         <span class="k">return</span> <span class="nb">object</span><span class="o">.</span><span class="fm">__getattribute__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">5903</span> 
 
 <span class="ne">AttributeError</span>: &#39;Series&#39; object has no attribute &#39;split&#39;
 
@@ -917,25 +916,25 @@ Name: Abstrak, Length: 805, dtype: object
 <span class="g g-Whitespace">    </span><span class="mi">229</span>         <span class="k">return</span> <span class="n">wrapped</span>
 
 <span class="nn">/usr/local/lib/python3.9/dist-packages/pandas/core/series.py</span> in <span class="ni">apply</span><span class="nt">(self, func, convert_dtype, args, **kwargs)</span>
-<span class="g g-Whitespace">   </span><span class="mi">4431</span>         <span class="n">dtype</span><span class="p">:</span> <span class="n">float64</span>
-<span class="g g-Whitespace">   </span><span class="mi">4432</span><span class="w">         </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="ne">-&gt; </span><span class="mi">4433</span><span class="sd">         return SeriesApply(self, func, convert_dtype, args, kwargs).apply()</span>
-<span class="g g-Whitespace">   </span><span class="mi">4434</span><span class="sd"> </span>
-<span class="g g-Whitespace">   </span><span class="mi">4435</span><span class="sd">     def _reduce(</span>
+<span class="g g-Whitespace">   </span><span class="mi">4769</span>         <span class="n">dtype</span><span class="p">:</span> <span class="n">float64</span>
+<span class="g g-Whitespace">   </span><span class="mi">4770</span><span class="w">         </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="ne">-&gt; </span><span class="mi">4771</span><span class="sd">         return SeriesApply(self, func, convert_dtype, args, kwargs).apply()</span>
+<span class="g g-Whitespace">   </span><span class="mi">4772</span><span class="sd"> </span>
+<span class="g g-Whitespace">   </span><span class="mi">4773</span><span class="sd">     def _reduce(</span>
 
 <span class="nn">/usr/local/lib/python3.9/dist-packages/pandas/core/apply.py</span> in <span class="ni">apply</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1086</span><span class="sd">             return self.apply_str()</span>
-<span class="g g-Whitespace">   </span><span class="mi">1087</span><span class="sd"> </span>
-<span class="ne">-&gt; </span><span class="mi">1088</span><span class="sd">         return self.apply_standard()</span>
-<span class="g g-Whitespace">   </span><span class="mi">1089</span><span class="sd"> </span>
-<span class="g g-Whitespace">   </span><span class="mi">1090</span><span class="sd">     def agg(self):</span>
+<span class="g g-Whitespace">   </span><span class="mi">1121</span><span class="sd"> </span>
+<span class="g g-Whitespace">   </span><span class="mi">1122</span><span class="sd">         # self.f is Callable</span>
+<span class="ne">-&gt; </span><span class="mi">1123</span><span class="sd">         return self.apply_standard()</span>
+<span class="g g-Whitespace">   </span><span class="mi">1124</span><span class="sd"> </span>
+<span class="g g-Whitespace">   </span><span class="mi">1125</span><span class="sd">     def agg(self):</span>
 
 <span class="nn">/usr/local/lib/python3.9/dist-packages/pandas/core/apply.py</span> in <span class="ni">apply_standard</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1141</span><span class="sd">                 # List[Union[Callable[..., Any], str]]]]]&quot;; expected</span>
-<span class="g g-Whitespace">   </span><span class="mi">1142</span><span class="sd">                 # &quot;Callable[[Any], Any]&quot;</span>
-<span class="ne">-&gt; </span><span class="mi">1143</span><span class="sd">                 mapped = lib.map_infer(</span>
-<span class="g g-Whitespace">   </span><span class="mi">1144</span><span class="sd">                     values,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1145</span><span class="sd">                     f,  # type: ignore[arg-type]</span>
+<span class="g g-Whitespace">   </span><span class="mi">1172</span><span class="sd">             else:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1173</span><span class="sd">                 values = obj.astype(object)._values</span>
+<span class="ne">-&gt; </span><span class="mi">1174</span><span class="sd">                 mapped = lib.map_infer(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1175</span><span class="sd">                     values,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1176</span><span class="sd">                     f,</span>
 
 <span class="nn">/usr/local/lib/python3.9/dist-packages/pandas/_libs/lib.pyx</span> in <span class="ni">pandas._libs.lib.map_infer</span><span class="nt">()</span>
 
@@ -2476,6 +2475,15 @@ Jumlah Data test :  161
         <p class="prev-next-subtitle">previous</p>
         <p class="prev-next-title"><strong>Tugas Pipelines</strong></p>
       </div>
+    </a>
+    <a class="right-next"
+       href="TugasPagerank.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><strong>Tugas Pagerank</strong></p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div></div>
   
